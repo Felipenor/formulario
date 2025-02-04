@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulários</title>
+</head>
+<body>
+  <h1>Formulários e Entradas</h1>
+  <p>
+    A tag formulários mais usada é a tag (<.input>).
+    O tipo de input é especificado com o atributo type
+  </p>
+  <h4>Campos de Texto</h4>
+  <p>os campos de texto são usados quando você quer que o usuário digite letras números etc.</p>
+<form> <!--tag de formulário-->
+  Primeiro nome:
+  <input type="text" name="firstname">
+  <br>
+  Último nome:
+  <input type="text" name="lastname">
+</form>
+
+<form>
+  <input type="text" name="" placeholder="Digite o seu apelido"> <!--texto dentro da caixa-->
+</form>
+<h4>Botões Radiais</h4>
+<p>Botões radiais são usados quando você quer que o usuário selecione uma ou mais opções</p>
+
+<form>
+  <input type="radio" name="sex" value="masc"> Masculino
+  <br>
+  <input type="radio" name="sex" value="femi"> Feminino
+</form>
+
+<h4>Caixa de seleção</h4>
+<p>As caixas de seleção são usadas quando você quer que o usuário selecione uma ou mais opções</p>
+
+<form>
+  <input type="checkbox" name="bike"> Eu tenho uma bicicleta
+  <br>
+  <input type="checkbox" name="car"> Eu tenho um carro
+</form>
+
+<h4>Criar Botão</h4>
+<p>Este exemplo demonstra como criar um botão. No botão você pode definir o seu próprio texto</p>
+
+<form>
+  <a href="/tabelas" target="_blank"><input type="button" value="Link"></a>
+</form>
+
+<h4>O atributo ação do formulário e o botão enviar</h4>
+<p>Quando o usuário clicar no botão "Enviar", o conteúdo do formulário é enviado para outro arquivo. O atributo de ação do formulário define o nome do arquivo para o qual enviar o conteúdo. O arquivo definido no atributo action geralmente faz algo com a entrada recebida.</p>
+
+<form name="input" action="#" method="get">
+  Nome do Usuário:
+  <input type="text" name="user">
+  <input type="submit" value="Enviar"><!--Botão Enviar-->
+</form>
+
+<h4>Caixa drop down Simples</h4>
+<p>Este exemplo demonstra como criar uma caixa drop down (suspenso) simples numa página HTML. A caixa é uma lista selecionável.</p>
+
+<form>
+  <select name="cars">
+    <option value="volto">Volto
+      <option value="fiat">Fiat
+        <option value="bmw">bmw
+          <option value="ferrari">Ferrari
+  </select>
+</form>
+
+<h4>A área de texto</h4>
+<p>Este exemplo demonstra como criar uma área de texto (um controle de entrada de texto multi-linhas). Um usuário pode escrever texto na área de texto. Numa área de texto você pode escrever uma quantidade ilimitada de caracteres.</p>
+
+<textarea rows="5" cols="50">Apague esse texto e digite aqui outra coisa
+</textarea>
+
+<h4>Escala de Nivel</h4>
+<input type="range" min="1" max="100" value="50">
+<br>
+<h4>Seleção de cores</h4>
+<p>Seleciona cor:</p>
+<input type="color" name="corDoProduto"><!--Código para fazer um botão de seleção de cores ou para pega o número ou código de uma cor-->
+
+<h4>Data de nascimento</h4>
+<input type="date" placeholder="Insira sua data de nascimento">
+
+</body>
+</html>
+
+<html>
+<head>
+<title>Exemplo de Pop-up com Vídeo do YouTube</title>
+<style>
+#video-popup {
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 300px;
+  height: 200px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 9999;
+}
+#video-popup iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 10000;
+}
+</style>
+</head>
+<body>
+<div id="video-popup">
+<button class="close-btn" id="close-btn">X</button>
+<iframe id="video-iframe" frameborder="0" allowfullscreen></iframe>
+</div>
+<script>
+var videos = [
+  "QQWM2BujAaQ",
+  "xj651GyzBKQ&t",
+  "cgagjNsbf6U&t",
+  "IGSyLs07wgc",
+  "2DXvEutCUJ0",
+  "277W6mWuE-o",
+  "jvdw7L6yXz8",
+  "ZgOYrcSPTLk",
+  "lXqGlXhwi_4"
+];
+
+var video = videos[Math.floor(Math.random() * videos.length)];
+var videoUrl = "https://www.youtube.com/embed/" + video + "?autoplay=1&mute=1";
+
+var popup = document.getElementById("video-popup");
+var iframe = document.getElementById("video-iframe");
+var closeButton = document.getElementById("close-btn");
+iframe.src = videoUrl;
+
+window.addEventListener("load", function() {
+  popup.style.display = "block";
+});
+
+closeButton.addEventListener("click", function() {
+  popup.style.display = "none";
+  window.open(videoUrl, "_blank");
+});
+
+iframe.addEventListener("ended", function() {
+  video = videos[Math.floor(Math.random() * videos.length)];
+  videoUrl = "https://www.youtube.com/embed/" + video + "?autoplay=1&mute=1";
+  iframe.src = videoUrl;
+});
+</script>
+</body>
+</html>
+
+<div id="musical-notes" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99999;"></div>
+
+<script type="text/javascript">
+	var notes = ["&#9833;", "&#9834;", "&#9835;", "&#9836;", "&#9837;", "&#9838;", "&#9839;"];
+	var colours = ["paleturquoise", "plum", "pink", "white", "lightblue", "bisque"];
+	var num_notes = 0;
+
+	document.onmousemove = function(event) {
+		var x = event.pageX;
+		var y = event.pageY;
+
+		var note = document.createElement("div");
+		note.style.position = "absolute";
+		note.style.color = colours[Math.floor(Math.random() * colours.length)];
+		note.style.left = x + Math.floor(Math.random() * 20) - 10 + "px";
+		note.style.top = y + Math.floor(Math.random() * 20) - 10 + "px";
+		note.innerHTML = notes[Math.floor(Math.random() * notes.length)];
+		document.getElementById("musical-notes").appendChild(note);
+
+		num_notes++;
+		if (num_notes > 50) {
+			document.getElementById("musical-notes").removeChild(document.getElementById("musical-notes").firstChild);
+			num_notes--;
+		}
+	};
+</script>
